@@ -100,7 +100,12 @@ body {
 /* --- HEADER / HERO SECTION --- */
 .header-section {
     min-height: 100vh;
-    background: url('https://images.unsplash.com/photo-1533091090875-1ff4acc49c63?q=80&w=1000') center/cover no-repeat;
+    background: url('../assets/images/Ba me/Bame04.jpg') center/cover no-repeat;
+    /* Các thuộc tính để ảnh nền hiển thị đẹp */
+    background-size: cover; /* Phóng to ảnh để lấp đầy khung, không bị méo */
+    background-position: center center; /* Luôn ưu tiên hiển thị phần giữa ảnh */
+    background-repeat: no-repeat;
+    
     position: relative;
     display: flex;
     flex-direction: column;
@@ -541,4 +546,72 @@ footer {
     60% {
         transform: translate(-50%, -8px);
     }
+}
+/* --- PHOTO GALLERY SECTION --- */
+.photo-gallery-section {
+    padding: 60px 20px;
+    background-color: var(--secondary-color); /* Nền màu kem sáng */
+}
+
+.gallery-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    margin-top: -15px; /* Kéo lên gần tiêu đề hơn */
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* 2 cột trên mobile, 3 cột trên tablet trở lên */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 8px; /* Bo góc mềm mại */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    aspect-ratio: 1 / 1; /* Luôn là hình vuông để lưới đều */
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh vừa khung, không bị méo */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Lớp phủ và icon khi hover */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    opacity: 0; /* Mặc định ẩn */
+    transition: opacity 0.4s ease;
+}
+
+/* Hiệu ứng khi di chuột vào ảnh */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Phóng to ảnh */
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* Hiện lớp phủ */
 }
