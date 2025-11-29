@@ -18,8 +18,11 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    
+    /* --- SỬA LỖI TẠI ĐÂY --- */
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Ra lệnh cho các con (Lời Ngỏ, Thiệp) xếp dọc */
+    align-items: center;   /* Dùng align-items để căn giữa theo chiều ngang */
     min-height: 100vh;
 }
 
@@ -476,4 +479,66 @@ footer {
     .highlight-title { font-size: 1.3rem; }
     .couple-role { font-size: 2.8rem; }
     .couple-card { aspect-ratio: 2/3; }
+}
+/* --- OPENING NOTE SECTION (LỜI NGỎ) --- */
+
+#hero-anchor {
+    display: block;
+    height: 1px; /* Chỉ là điểm neo, không cần có kích thước */
+}
+
+.opening-note-section {
+    /* Thiết lập layout full màn hình */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+
+    /* Kế thừa nền tối từ body để đồng bộ */
+    background-color: var(--bg-body);
+    color: #ccc; /* Chữ màu xám sáng */
+    text-align: center;
+    padding: 40px 20px;
+    position: relative; /* Để chứa mũi tên cuộn */
+}
+
+.opening-note-content {
+    max-width: 650px; /* Giới hạn chiều rộng cho dễ đọc */
+}
+
+.opening-note-text {
+    font-family: 'Montserrat', sans-serif; /* Hoặc 'Playfair Display', serif cho cổ điển */
+    font-size: 1.1rem; /* Kích thước vừa phải, dễ đọc */
+    line-height: 1.8; /* Giãn dòng cho thoáng */
+    font-weight: 300; /* Nét chữ mảnh, tinh tế */
+}
+
+.signature {
+    font-size: 2.2rem;
+    color: var(--primary-color); /* Dùng màu vàng đồng chủ đạo */
+    margin-top: 30px;
+}
+
+/* Mũi tên chỉ dẫn cuộn xuống */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #888;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite; /* Hiệu ứng nhấp nháy */
+}
+
+/* Keyframes cho hiệu ứng nhấp nháy */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px);
+    }
+    60% {
+        transform: translate(-50%, -8px);
+    }
 }
