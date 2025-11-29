@@ -1,0 +1,606 @@
+:root {
+    /* Color Palette - Sang trọng, Ấm cúng (Gold & Warm Beige) */
+    --primary-color: #bfa472; /* Vàng đồng sang trọng */
+    --secondary-color: #f8f5f2; /* Màu kem sáng nền nã */
+    --accent-color: #8c6a3e; /* Nâu đồng đậm cho điểm nhấn */
+    --text-color: #4a4a4a; /* Màu chữ xám đậm dễ đọc */
+    --bg-body: #2c2c2c; /* Nền ngoài tối để làm nổi bật thiệp */
+    --font-main: 'Montserrat', sans-serif;
+    --font-script: 'Great Vibes', cursive; /* Font script cổ điển, trang trọng hơn */
+}
+
+/* --- Global Reset --- */
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-body);
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Pattern bụi sao nhẹ */
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- Mobile Container --- */
+.mobile-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: #fff;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Typography --- */
+.font-script {
+    font-family: var(--font-script);
+    color: var(--primary-color);
+}
+.text-accent { color: var(--accent-color); }
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-script);
+    color: var(--accent-color);
+}
+
+/* --- Music Player --- */
+.music-btn {
+    position: fixed;
+    bottom: 30px;
+    left: calc(50% - 220px);
+    z-index: 1000;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s;
+}
+.music-btn:hover { transform: scale(1.1); }
+@media (max-width: 500px) {
+    .music-btn { left: 20px; bottom: 20px; }
+}
+.music-btn i { color: var(--primary-color); font-size: 18px; }
+.music-rotating { animation: spin 4s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- Falling Effect --- */
+#falling-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+.falling-item {
+    position: absolute;
+    top: -10%;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- HEADER / HERO SECTION --- */
+.header-section {
+    min-height: 100vh;
+    /* Ảnh bìa (Placeholder) - Nên chọn ảnh ngày xưa hoặc ảnh chụp studio của ba mẹ */
+    background: url('https://images.unsplash.com/photo-1533091090875-1ff4acc49c63?q=80&w=1000') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+.header-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); /* Lớp phủ đen mờ để rõ chữ */
+    z-index: 1;
+}
+.header-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    border: 2px solid rgba(255,255,255,0.3); /* Khung viền trang trí */
+    margin: 20px;
+}
+.header-names {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+.header-date {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 1px solid rgba(255,255,255,0.8);
+    padding: 12px 0;
+    display: inline-block;
+}
+
+/* --- INTRO SECTION --- */
+.intro-section { padding: 50px 20px; text-align: center; background: #fff; }
+.couple-img-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%; object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.quote-box {
+    font-style: italic; color: #666;
+    font-size: 1rem; margin-top: 25px; padding: 0 10px;
+    line-height: 1.6;
+}
+
+/* --- COUNTDOWN --- */
+.countdown-section { background: var(--secondary-color); padding: 50px 20px; text-align: center; }
+.countdown-wrapper { display: flex; justify-content: center; gap: 10px; }
+.countdown-item {
+    background: #fff; width: 65px; height: 65px;
+    border-radius: 50%; /* Bo tròn cho mềm mại */
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--primary-color);
+}
+.countdown-number { font-size: 1.3rem; font-weight: bold; color: var(--accent-color); line-height: 1; }
+.countdown-label { font-size: 0.5rem; text-transform: uppercase; margin-top: 4px; color: #888; }
+
+/* --- LOVE STORY / TIMELINE --- */
+.love-story-section { padding: 50px 20px; background: #fff; }
+.timeline-item {
+    border-left: 2px solid var(--primary-color); padding-left: 25px;
+    margin-bottom: 40px; position: relative;
+}
+.timeline-item::before {
+    content: ''; 
+    position: absolute; left: -9px; top: 0;
+    width: 16px; height: 16px; background: var(--primary-color);
+    border-radius: 50%;
+}
+.timeline-date { font-weight: bold; color: var(--accent-color); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
+.timeline-img { width: 100%; border-radius: 4px; margin-top: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); filter: sepia(20%); /* Hiệu ứng ảnh hơi cũ kỹ hoài niệm */ transition: filter 0.3s; }
+.timeline-img:hover { filter: sepia(0%); }
+
+/* --- GALLERY --- */
+.gallery-section { padding: 50px 20px; background: var(--secondary-color); }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.gallery-item { overflow: hidden; border-radius: 4px; aspect-ratio: 1/1; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gallery-item img:hover { transform: scale(1.05); }
+
+/* --- EVENTS --- */
+.event-section { padding: 60px 20px; background: #fff; text-align: center; }
+.event-card {
+    border: 1px solid var(--primary-color); padding: 30px 20px; border-radius: 0; /* Bo góc vuông cho cổ điển */
+    background: #fff; margin-bottom: 20px; position: relative;
+}
+/* Trang trí góc event card */
+.event-card::after {
+    content: ''; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border: 1px solid var(--secondary-color); pointer-events: none;
+}
+.map-frame { width: 100%; height: 200px; border: 0; margin-top: 15px; border: 1px solid #ddd; }
+
+/* --- GIFT / WISHES --- */
+.gift-section {
+    padding: 60px 20px;
+    /* Nền màu nâu đồng sang trọng */
+    background: linear-gradient(135deg, var(--accent-color), #5e4626);
+    color: #fff; text-align: center;
+}
+.bank-card {
+    background: #fff; color: #333; border-radius: 8px;
+    padding: 30px 20px; margin-bottom: 20px; text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- RSVP --- */
+.rsvp-section { padding: 60px 20px; background: #fff; text-align: center; }
+.form-control {
+    border-radius: 4px; padding: 12px 15px; margin-bottom: 15px;
+    border: 1px solid #ccc; background: #fdfdfd; font-size: 0.95rem;
+}
+.btn-submit {
+    background: var(--accent-color); color: #fff; border: none;
+    padding: 12px 35px; border-radius: 4px; font-weight: 600; letter-spacing: 1px;
+    width: 100%; text-transform: uppercase; transition: 0.3s;
+}
+.btn-submit:hover { background: var(--primary-color); }
+
+/* --- FOOTER --- */
+footer {
+    background: #222; color: #aaa; text-align: center;
+    padding: 40px 20px; font-size: 0.8rem; letter-spacing: 1px;
+}
+/* --- COUPLE HIGHLIGHT SECTION (BẢN UPDATE ẢNH TO) --- */
+.couple-highlight-section {
+    padding: 60px 0;
+    background-color: #1f3d2b; /* Xanh rêu đậm */
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Typography Tiêu đề */
+.highlight-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem; /* Chỉnh nhỏ lại xíu để không chiếm chỗ của ảnh */
+    line-height: 1.3;
+    color: #f1f8e9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.highlight-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #fff;
+    margin: 10px auto;
+}
+
+.highlight-subtitle {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #a5d6a7;
+    margin-bottom: 30px;
+}
+
+/* --- CARD STYLE (ẢNH TO) --- */
+.couple-card {
+    position: relative;
+    width: 100%;
+    /* Tỉ lệ 2:3 -> Ảnh cao, to, giống poster */
+    aspect-ratio: 2/3; 
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    cursor: pointer;
+    /* Viền mỏng mờ để tách biệt ảnh với nền xanh */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.couple-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+/* Hiệu ứng Zoom khi di chuột */
+.couple-card:hover .couple-img {
+    transform: scale(1.1); /* Zoom nhẹ 10% */
+}
+
+/* Overlay chữ nằm gọn bên dưới */
+.couple-overlay {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    /* Gradient đen chỉ xuất hiện ở 30% dưới cùng của ảnh */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+    padding: 40px 10px 20px 10px; /* Padding top cao để gradient mượt */
+    text-align: center;
+    z-index: 2;
+}
+
+/* Typography tên trong ảnh */
+.couple-role {
+    font-family: 'Great Vibes', cursive; /* Font chữ ký bay bổng */
+    font-size: 3.5rem; /* Chữ to nổi bật */
+    color: #fff;
+    margin: 0;
+    line-height: 0.8;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.couple-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-top: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 2;
+}
+/* --- CALENDAR SECTION (STYLE VINTAGE) --- */
+
+.calendar-section {
+    padding: 80px 20px;
+    background-color: #fcfcfc; /* Nền trắng giấy */
+    /* Pattern giấy nhám nhẹ (tùy chọn) */
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    color: #4F6335; /* Màu xanh rêu chủ đạo */
+    text-align: center;
+}
+
+/* 1. Header Lịch */
+.calendar-header {
+    position: relative;
+    height: 120px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.year-text {
+    font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
+    font-size: 5rem;
+    color: #4F6335;
+    opacity: 0.8;
+    letter-spacing: -2px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.month-text {
+    font-family: 'Great Vibes', cursive; /* Font viết tay */
+    font-size: 3.5rem;
+    color: #4F6335;
+    position: absolute;
+    top: 50px; /* Đẩy xuống để đè lên năm 2025 */
+    z-index: 2;
+    text-shadow: 2px 2px 0px #fcfcfc; /* Tạo viền trắng để tách khỏi số năm */
+}
+
+/* 2. Grid Lịch */
+.calendar-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #6d7f56;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 15px;
+    font-size: 1rem;
+    color: #4F6335;
+}
+
+.days span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    position: relative;
+}
+
+/* Ô ngày cưới đặc biệt */
+.wedding-day {
+    font-weight: bold;
+    color: #334422;
+    position: relative;
+    z-index: 2;
+}
+
+/* Trái tim SVG */
+.heart-shape {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    fill: none; /* Không tô màu nền */
+    stroke: #4F6335; /* Viền xanh rêu */
+    stroke-width: 5;
+    z-index: -1; /* Nằm dưới số */
+    
+    /* Animation trái tim đập */
+    animation: heartBeat 1.5s infinite ease-in-out;
+    transform-origin: center;
+}
+
+/* Keyframes cho hiệu ứng đập */
+@keyframes heartBeat {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    15% { transform: translate(-50%, -50%) scale(1.15); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    45% { transform: translate(-50%, -50%) scale(1.15); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* 3. Intro Text */
+.countdown-intro {
+    margin-top: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #4F6335;
+    line-height: 1.6;
+}
+
+/* 4. Countdown to lớn */
+.vintage-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #4F6335;
+}
+
+.vc-item { width: 60px; text-align: center; }
+.vc-sep { margin: 0 5px; padding-bottom: 5px; }
+
+/* Responsive Mobile */
+@media (max-width: 500px) {
+    .year-text { font-size: 4rem; }
+    .month-text { font-size: 2.5rem; }
+    .vintage-countdown { font-size: 1.8rem; }
+    .vc-item { width: 45px; }
+}
+/* --- GUESTBOOK SECTION --- */
+.guestbook-section {
+    padding: 60px 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    background-color: #f9f9f9;
+}
+
+/* Tiêu đề */
+.guestbook-title {
+    font-size: 3.5rem;
+    color: #4F6335; /* Xanh rêu đậm */
+    margin-bottom: 10px;
+}
+
+.guestbook-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form Container (Khối màu xanh xám) */
+.guestbook-form-container {
+    background-color: #ced8cc; /* Màu xanh xám nhạt giống ảnh */
+    padding: 30px;
+    border-radius: 4px; /* Bo góc nhẹ hoặc để vuông */
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Input Styles */
+.custom-input {
+    border: none;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    box-shadow: none;
+}
+.custom-input:focus {
+    box-shadow: 0 0 0 2px #4F6335;
+}
+
+/* Button Style */
+.btn-submit-wish {
+    background-color: #4F6335; /* Màu nút xanh rêu đậm */
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+.btn-submit-wish:hover {
+    background-color: #3a4a27;
+}
+
+/* Danh sách lời chúc */
+.wishes-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wish-item {
+    border-bottom: 1px dashed #ccc; /* Đường gạch nét đứt */
+    padding: 20px 0;
+}
+
+.wish-item:last-child {
+    border-bottom: none;
+}
+
+.wish-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 2px;
+}
+
+.wish-date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.wish-content {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- CREDITS (FOOTER) --- */
+footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 40px 20px;
+}
+
+.footer-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.credits-divider {
+    width: 50px;
+    height: 1px;
+    background-color: #555;
+    margin: 0 auto 15px auto;
+}
+
+.credits-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.creator-name {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
