@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- 3. VINTAGE COUNTDOWN (ĐẾM NGƯỢC) ---
     // Sửa ngày cưới/kỷ niệm của bạn tại đây
-    const targetDate = new Date("Oct 30, 2025 00:00:00").getTime();
+    const targetDate = new Date("Dec 04, 2025 00:00:00").getTime();
 
     const timerInterval = setInterval(function() {
         const now = new Date().getTime();

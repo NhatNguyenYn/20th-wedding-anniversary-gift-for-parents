@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -24,7 +24,6 @@
     <div class="music-btn" id="musicBtn" title="Bật/Tắt nhạc">
         <i class="fas fa-music"></i>
     </div>
-    <!-- Bạn hãy thay link bài hát kỷ niệm của ba mẹ vào đây (ví dụ: Beautiful in white, Nhỏ ơi...) -->
     <audio id="bgMusic" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" type="audio/mpeg">
     </audio>
@@ -42,21 +41,17 @@
             </div>
         </header>
 
-        <!-- === BẮT ĐẦU PHẦN COUPLE HIGHLIGHT (BẢN UPDATE ẢNH TO) === -->
+        <!-- COUPLE HIGHLIGHT -->
         <section class="couple-highlight-section">
-            <div class="container px-4"> <!-- Padding x-4 để hở lề một chút cho đẹp -->
-                
-                <!-- Title Block -->
+            <div class="container px-4">
                 <div class="highlight-header text-center" data-aos="fade-down">
                     <h2 class="highlight-title">WHEN TWO HEARTS <br> BEAT AS ONE</h2>
                     <div class="highlight-divider"></div>
                     <p class="highlight-subtitle">They create a soul strong enough to last forever</p>
                 </div>
 
-                <!-- Couple Cards Column -->
                 <div class="row justify-content-center">
-                    
-                    <!-- Card 1: Cô Dâu / Mẹ -->
+                    <!-- Mẹ -->
                     <div class="col-12 mb-4" data-aos="fade-up">
                         <div class="couple-card">
                             <img src="https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=800" alt="Cô Dâu" class="couple-img">
@@ -66,8 +61,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 2: Chú Rể / Ba -->
+                    <!-- Ba -->
                     <div class="col-12" data-aos="fade-up">
                         <div class="couple-card">
                             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800" alt="Chú Rể" class="couple-img">
@@ -77,11 +71,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-        <!-- === KẾT THÚC PHẦN COUPLE HIGHLIGHT === -->
 
         <!-- INTRO -->
         <section class="intro-section" id="intro">
@@ -89,12 +81,10 @@
                 <h2 class="section-title">Hành Trình Yêu Thương</h2>
                 <div class="row">
                     <div class="col-6 text-center">
-                        <!-- Thay ảnh Ba -->
                         <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=300" class="couple-img-circle" alt="Ba">
                         <h4 class="font-weight-bold" style="font-size: 1.1rem;">Ba Hồng Giang</h4>
                     </div>
                     <div class="col-6 text-center">
-                        <!-- Thay ảnh Mẹ -->
                         <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=300" class="couple-img-circle" alt="Mẹ">
                         <h4 class="font-weight-bold" style="font-size: 1.1rem;">Mẹ Thu Hà</h4>
                     </div>
@@ -105,76 +95,47 @@
             </div>
         </section>
 
-        <!-- COUNTDOWN -->
-        <section class="countdown-section">
-            <h3 class="text-center mb-4 font-script" style="color: var(--primary-color); font-size: 1.8rem;">Đếm ngược ngày kỷ niệm</h3>
-            <div class="countdown-wrapper" id="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Ngày</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Giờ</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Phút</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Giây</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- === BẮT ĐẦU PHẦN CALENDAR & COUNTDOWN === -->
+        <!-- CALENDAR & VINTAGE COUNTDOWN -->
         <section class="calendar-section">
             <div class="container">
-                
-                <!-- 1. Header: Năm và Tháng xếp chồng -->
+                <!-- Header Lịch -->
                 <div class="calendar-header" data-aos="fade-down">
                     <div class="year-text">2025</div>
-                    <div class="month-text font-script">October</div>
+                    <div class="month-text font-script">December</div>
                 </div>
 
-                <!-- 2. Grid Lịch (Tháng 10/2025 bắt đầu vào Thứ 4) -->
+                <!-- Grid Lịch -->
                 <div class="calendar-wrapper" data-aos="zoom-in">
-                    <!-- Hàng thứ (Mon - Sun) -->
                     <div class="weekdays">
                         <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
                     </div>
 
-                    <!-- Các ngày trong tháng -->
                     <div class="days">
-                        <!-- Tháng 10/2025 bắt đầu Thứ 4, nên 2 ô đầu trống (Mon, Tue) -->
-                        <span class="empty"></span><span class="empty"></span>
-                        
-                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-                        <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
-                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
-                        <span>27</span><span>28</span><span>29</span>
-                        
-                        <!-- NGÀY CƯỚI (30) - Có trái tim bao quanh -->
+                        <!-- Tháng 12/2025 bắt đầu Thứ 2 -->
+                        <span>1</span><span>2</span><span>3</span>
+
+                        <!-- NGÀY CƯỚI (04/12) -->
                         <span class="wedding-day">
-                            30
-                            <!-- SVG Trái tim vẽ tay -->
+                            4
                             <svg class="heart-shape" viewBox="0 0 100 100">
                                 <path d="M50,88.9C25.5,74.1,8.9,56.3,8.9,37c0-14.2,11.2-25.4,25.4-25.4c8.4,0,16,4,20.8,10.2c4.8-6.2,12.4-10.2,20.8-10.2c14.2,0,25.4,11.2,25.4,25.4C91.1,56.3,74.5,74.1,50,88.9z"/>
                             </svg>
                         </span>
-                        
-                        <span>31</span>
+
+                        <span>5</span><span>6</span><span>7</span>
+                        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                        <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+                        <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+                        <span>29</span><span>30</span><span>31</span>
+                        <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span>
                     </div>
                 </div>
 
-                <!-- 3. Dòng chữ dẫn dắt -->
+                <!-- Đếm ngược -->
                 <div class="countdown-intro text-center" data-aos="fade-up">
-                    We’ll be sharing a home and a life<br>together in
+                    It's just a little while until<br>our 20th wedding anniversary.
                 </div>
 
-                <!-- 4. Bộ đếm ngược (Style tối giản) -->
                 <div class="vintage-countdown" id="vintage-countdown" data-aos="fade-up">
                     <div class="vc-item"><span id="vc-days">00</span></div>
                     <div class="vc-sep">:</div>
@@ -184,12 +145,10 @@
                     <div class="vc-sep">:</div>
                     <div class="vc-item"><span id="vc-seconds">00</span></div>
                 </div>
-
-            </div>
+            </div> <!-- Đóng container đúng chỗ -->
         </section>
-        <!-- === KẾT THÚC PHẦN CALENDAR === -->
 
-        <!-- LOVE STORY / TIMELINE -->
+        <!-- TIMELINE -->
         <section class="love-story-section">
             <h2 class="section-title" data-aos="zoom-in">Chặng Đường 20 Năm</h2>
             
@@ -203,16 +162,14 @@
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-date">Nhật Nguyên chào đời - 2007</div>
                 <h5>Chào đón thành viên mới</h5>
-                <p class="small text-muted">Gia đình mình đón thêm những thiên thần nhỏ, tiếng cười tràn ngập ngôi nhà.</p>
-                <!-- Bạn có thể xóa ảnh này nếu không có ảnh cũ -->
+                <p class="small text-muted">Gia đình mình đón thêm thiên thần nhỏ đầu tiên.</p>
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=500" class="timeline-img" alt="Family">
             </div>
 
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-date">Thiên Hoa chào đời - 2013</div>
                 <h5>Chào đón thành viên mới</h5>
-                <p class="small text-muted">Gia đình mình đón thêm những thiên thần nhỏ, tiếng cười tràn ngập ngôi nhà.</p>
-                <!-- Bạn có thể xóa ảnh này nếu không có ảnh cũ -->
+                <p class="small text-muted">Niềm vui nhân đôi khi gia đình có thêm thành viên mới.</p>
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=500" class="timeline-img" alt="Family">
             </div>
 
@@ -228,7 +185,6 @@
         <section class="gallery-section" id="gallery">
             <h2 class="section-title" data-aos="fade-down">Gia Đình Hạnh Phúc</h2>
             <div class="gallery-grid">
-                <!-- Thay ảnh gia đình vào các link bên dưới -->
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
                     <a href="https://images.unsplash.com/photo-1542038784456-1ea0e93ca370?q=80&w=1000" data-fancybox="gallery">
                         <img src="https://images.unsplash.com/photo-1542038784456-1ea0e93ca370?q=80&w=400" alt="Family 1">
@@ -257,20 +213,19 @@
             <h2 class="section-title" data-aos="fade-up">Tiệc Thân Mật</h2>
             <div class="event-card" data-aos="flip-up">
                 <h3 class="font-script text-accent" style="font-size: 1.8rem;">Tiệc Kỷ Niệm</h3>
+                <!-- Lưu ý: Ngày này là Chủ Nhật 30/11, khác với ngày 04/12 trên lịch -->
                 <p><strong><i class="far fa-clock"></i> 18:00 - 30/11/2025</strong></p>
                 <p class="mb-1"><i class="fas fa-home"></i> Nhà hàng Phổ Đình Uraetei Trần Quốc Thảo </p>
                 <p class="small text-muted">125A Trần Quốc Thảo, phường Võ Thị Sáu, quận 3, TP.HCM</p>
-                <!-- Thay link Google Maps địa điểm vào đây -->
                 <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3557104801007!2d106.6824212753594!3d10.784044489365197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f2e87088f35%3A0x727df1b7f89beed2!2zMTI1YSBUcuG6p24gUXXhu5FjIFRo4bqjbywgUGjGsOG7nW5nIFbDtSBUaOG7iyBTw6F1LCBRdeG6rW4gMywgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1764396037519!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
 
-        <!-- WISHES / GIFT (Tùy chọn) -->
+        <!-- WISHES / GIFT -->
         <section class="gift-section" id="gift">
             <h2 class="section-title" style="color: #fff;" data-aos="fade-down">Gửi Lời Chúc</h2>
             <p style="color: #eee; margin-bottom: 30px;">Món quà ý nghĩa nhất là những lời chúc tốt đẹp từ gia đình, bạn bè và những người thân yêu.</p>
             
-            <!-- Box gửi lời chúc giả lập -->
              <div class="bank-card" data-aos="zoom-in">
                 <i class="fas fa-envelope-open-text" style="font-size: 30px; color: var(--accent-color); margin-bottom: 10px;"></i>
                 <h5>Hộp Thư Yêu Thương</h5>
@@ -278,65 +233,45 @@
             </div>
         </section>
 
-        <!-- RSVP bảo trì cập nhật sau
-        <section class="rsvp-section" id="rsvp">
-            <h2 class="section-title" data-aos="zoom-in">Xác Nhận Tham Dự</h2>
-            <form action="#" method="POST">
-                <input type="text" class="form-control" placeholder="Tên khách mời / Con cháu" required>
-                <select class="form-control">
-                    <option>Sẽ tham dự</option>
-                    <option>Không thể tham dự</option>
-                </select>
-                <textarea class="form-control" rows="3" placeholder="Lời chúc gửi đến Ba Mẹ..."></textarea>
-                <button type="submit" class="btn-submit">Gửi Lời Chúc</button>
-            </form>
+        <!-- GUESTBOOK -->
+        <section class="guestbook-section" id="guestbook">
+            <div class="container">
+                <div class="guestbook-header text-center" data-aos="fade-down">
+                    <h2 class="guestbook-title font-script">Sổ Lưu Bút</h2>
+                    <p class="guestbook-subtitle">Cảm ơn mọi người rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến buổi kỉ niệm của chúng tôi!</p>
+                </div>
+
+                <div class="guestbook-form-container" data-aos="fade-up">
+                    <form id="wish-form">
+                        <div class="mb-3">
+                            <input type="text" id="guest-name" class="form-control custom-input" placeholder="Nhập tên của bạn*" required>
+                        </div>
+                        <div class="mb-4">
+                            <textarea id="guest-message" class="form-control custom-input" rows="3" placeholder="Nhập lời chúc của bạn*" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn-submit-wish">GỬI LỜI CHÚC</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="wishes-list" id="wishes-list-container" data-aos="fade-up">
+                    <p id="loading-text" class="text-center">⏳ Đang tải dòng lưu bút...</p>
+                </div>
+            </div>
         </section>
-        -->
 
-<!-- === BẮT ĐẦU PHẦN SỔ LƯU BÚT === -->
-    <section class="guestbook-section" id="guestbook">
-        <div class="container">
-            <!-- Tiêu đề -->
-            <div class="guestbook-header text-center" data-aos="fade-down">
-                <h2 class="guestbook-title font-script">Sổ Lưu Bút</h2>
-                <p class="guestbook-subtitle">Cảm ơn mọi người rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến buổi kỉ niệm của chúng tôi!</p>
+        <!-- FOOTER -->
+        <footer>
+            <div class="container text-center">
+                <p class="footer-text">Happy 20th Anniversary • Ba & Mẹ</p>
+                <div class="credits-divider"></div>
+                <p class="credits-text">
+                    Designed & Developed with <i class="fas fa-heart" style="color: #e6a4b4;"></i> by 
+                    <span class="creator-name">Ngô Nhật Nguyên</span>
+                </p>
             </div>
-
-            <!-- Form Nhập liệu (Nền xanh xám) -->
-            <div class="guestbook-form-container" data-aos="fade-up">
-                <form id="wish-form">
-                    <div class="mb-3">
-                        <input type="text" id="guest-name" class="form-control custom-input" placeholder="Nhập tên của bạn*" required>
-                    </div>
-                    <div class="mb-4">
-                        <textarea id="guest-message" class="form-control custom-input" rows="3" placeholder="Nhập lời chúc của bạn*" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn-submit-wish">GỬI LỜI CHÚC</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Danh sách lời chúc (Nền giấy) -->
-            <div class="wishes-list" id="wishes-list-container" data-aos="fade-up">
-                <!-- Chỉ để lại dòng này, JS sẽ tự động xóa nó khi tải xong -->
-                <p id="loading-text" class="text-center">⏳ Đang tải dòng lưu bút...</p>
-            </div>
-        </div>
-    </section>
-    <!-- === KẾT THÚC SỔ LƯU BÚT === -->
-
-    <!-- === FOOTER & CREDITS === -->
-    <footer>
-        <div class="container text-center">
-            <p class="footer-text">Happy 20th Anniversary • Ba & Mẹ</p>
-            <div class="credits-divider"></div>
-            <p class="credits-text">
-                Designed & Developed with <i class="fas fa-heart" style="color: #e6a4b4;"></i> by 
-                <span class="creator-name">Ngô Nhật Nguyên</span>
-            </p>
-        </div>
-    </footer>
+        </footer>
     </div>
 
     <!-- Scripts -->
