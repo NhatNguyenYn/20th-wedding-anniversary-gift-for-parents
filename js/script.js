@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (distance < 0) {
             clearInterval(timerInterval);
             const countdownEl = document.getElementById("vintage-countdown");
-            if(countdownEl) countdownEl.innerHTML = "<div style='font-size:1.5rem; color:#4F6335;'>HAPPY ANNIVERSARY!</div>";
+            if(countdownEl) countdownEl.innerHTML = "<div style='font-size:1.5rem; color:#4F6335;'>CHÚC MỪNG NGÀY KỈ NIỆM</div>";
         }
     }, 1000);
 
