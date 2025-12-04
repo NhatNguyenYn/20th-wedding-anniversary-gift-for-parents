@@ -621,8 +621,8 @@ footer {
 
 .gallery-grid {
     display: grid;
-    /* 2 cột trên mobile, 3 cột trên tablet trở lên */
-    grid-template-columns: repeat(2, 1fr); 
+    /* CHỈ GIỮ LẠI 1 DÒNG NÀY: Luôn luôn là 3 cột */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 15px;
 }
 
