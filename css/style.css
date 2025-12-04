@@ -18,18 +18,16 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    
-    /* --- SỬA LỖI TẠI ĐÂY --- */
     display: flex;
-    flex-direction: column; /* Ra lệnh cho các con (Lời Ngỏ, Thiệp) xếp dọc */
-    align-items: center;   /* Dùng align-items để căn giữa theo chiều ngang */
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
 }
 
 /* --- Mobile Container --- */
 .mobile-container {
     width: 100%;
-    max-width: 480px;
+    max-width: 480px; /* Quay trở lại giới hạn chiều rộng an toàn */
     background-color: #fff;
     box-shadow: 0 0 40px rgba(0,0,0,0.7);
     position: relative;
@@ -763,4 +761,52 @@ footer {
         letter-spacing: 2px !important;
     }
 
+}
+/* --- CSS RESPONSIVE THÔNG MINH (BẢN SỬA LỖI) --- */
+
+/* 1. Tự động co giãn các tiêu đề lớn */
+
+/* Header chính */
+.header-names {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+}
+
+/* Tiêu đề các section */
+.section-title {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+}
+
+/* Chữ "Cô dâu", "Chú rể" trong ảnh */
+.couple-role {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+}
+
+/* Tên trong ảnh */
+.couple-name {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+/* Tiêu đề Sổ Lưu Bút */
+.guestbook-title {
+    font-size: clamp(2.8rem, 10vw, 3.5rem);
+}
+
+/* Năm và Tháng trong Lịch */
+.year-text {
+    font-size: clamp(3.5rem, 15vw, 5rem);
+}
+.month-text {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    top: clamp(30px, 12vw, 50px);
+}
+
+/* 2. Điều chỉnh lại một vài khoảng cách cho cân đối */
+.header-content {
+    padding: clamp(15px, 5vw, 30px);
+    margin: clamp(10px, 4vw, 20px);
+}
+
+/* Giảm khoảng cách giữa các ảnh trong timeline */
+.timeline-item {
+    margin-bottom: 25px;
 }
