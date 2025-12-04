@@ -43,9 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Sự kiện khi bấm nút "Mở Thiệp Mời"
+    // Sự kiện khi bấm nút "Mở Thiệp Mời" (ĐÃ SỬA LỖI TỰ ĐỘNG CUỘN)
     if (enterButton && welcomeScreen) {
         enterButton.addEventListener('click', function() {
+            
+            // === DÒNG LỆNH FIX LỖI NẰM Ở ĐÂY ===
+            // Buộc trình duyệt cuộn về đầu trang ngay lập tức
+            window.scrollTo(0, 0);
+
             // 1. Chơi nhạc
             playMusic();
             
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             welcomeScreen.style.opacity = '0';
             welcomeScreen.style.visibility = 'hidden';
 
-            // Xóa khỏi DOM sau khi hiệu ứng kết thúc để không cản trở
+            // Xóa khỏi DOM sau khi hiệu ứng kết thúc
             setTimeout(() => {
                 welcomeScreen.remove();
             }, 1000);
