@@ -43,14 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Sự kiện khi bấm nút "Mở Thiệp Mời" (ĐÃ SỬA LỖI TỰ ĐỘNG CUỘN)
+    // Sự kiện khi bấm nút "Mở Thiệp Mời" (BẢN FIX CUỐI CÙNG)
     if (enterButton && welcomeScreen) {
         enterButton.addEventListener('click', function() {
-            
-            // === DÒNG LỆNH FIX LỖI NẰM Ở ĐÂY ===
-            // Buộc trình duyệt cuộn về đầu trang ngay lập tức
-            window.scrollTo(0, 0);
-
             // 1. Chơi nhạc
             playMusic();
             
@@ -58,10 +53,16 @@ document.addEventListener('DOMContentLoaded', function() {
             welcomeScreen.style.opacity = '0';
             welcomeScreen.style.visibility = 'hidden';
 
-            // Xóa khỏi DOM sau khi hiệu ứng kết thúc
+            // 3. SAU KHI hiệu ứng kết thúc (sau 1 giây)
             setTimeout(() => {
+                // Xóa màn hình chào mừng khỏi DOM
                 welcomeScreen.remove();
-            }, 1000);
+                
+                // === RA LỆNH CUỘN VỀ ĐẦU TRANG LẦN CUỐI CÙNG ===
+                // Dùng behavior: 'auto' để nó nhảy lên ngay lập tức, không cuộn mượt
+                window.scrollTo({ top: 0, behavior: 'auto' });
+
+            }, 1000); // 1000ms khớp với transition duration trong CSS
         });
     }
 
