@@ -206,7 +206,14 @@ body {
 
 .couple-role {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
+    
+    /* Đặt một kích thước chữ cố định, lớn và đẹp */
+    font-size: 40px; /* Hoặc 2.5rem */
+
+    /* Bắt buộc nằm trên một dòng, dù có tràn ra ngoài */
+    white-space: nowrap;
+    
+    /* Các thuộc tính cũ giữ nguyên */
     color: #fff;
     margin: 0;
     line-height: 0.8;
@@ -214,7 +221,6 @@ body {
     position: relative;
     z-index: 2;
 }
-
 .couple-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -809,4 +815,28 @@ footer {
 /* Giảm khoảng cách giữa các ảnh trong timeline */
 .timeline-item {
     margin-bottom: 25px;
+}
+/* --- CSS RESPONSIVE TINH CHỈNH CHO CÁC TIÊU ĐỀ --- */
+
+/* 1. Vô hiệu hóa thẻ <br> trên màn hình lớn (PC/Tablet) */
+@media (min-width: 769px) {
+    .mobile-break {
+        display: none;
+    }
+}
+
+
+/* 2. Áp dụng các chỉnh sửa cho màn hình điện thoại */
+@media (max-width: 768px) {
+
+    /* --- SỬA LỖI CHO "KHOẢNH KHẮC KỶ NIỆM" & CÁC TIÊU ĐỀ KHÁC --- */
+    .photo-gallery-section .section-title,
+    .love-story-section .section-title,
+    .event-section .section-title {
+        /* Giảm kích thước chữ một chút */
+        font-size: 2.2rem;
+        
+        /* Bắt buộc nằm trên một dòng */
+        white-space: nowrap; 
+    }
 }

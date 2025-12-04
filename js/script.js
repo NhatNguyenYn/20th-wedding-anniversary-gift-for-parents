@@ -197,4 +197,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Tự động tải lời chúc khi vào web
     loadWishes();
+
+// --- 7. TỰ ĐỘNG CO GIÃN CHỮ CHO VỪA KHUNG (FIX LỖI TRÀN CHỮ) ---
+    function fitTextToContainer() {
+        const elementsToFit = document.querySelectorAll('.couple-role');
+        
+        elementsToFit.forEach(element => {
+            const container = element.closest('.couple-overlay');
+            if (!container) return;
+
+            const containerWidth = container.clientWidth - 20;
+            const textWidth = element.scrollWidth;
+
+            if (textWidth > containerWidth) {
+                const scaleRatio = containerWidth / textWidth;
+                element.style.transform = `scale(${scaleRatio})`;
+                
+                // === SỬA DÒNG NÀY ===
+                element.style.transformOrigin = 'left'; // Co giãn từ bên trái
+            } else {
+                element.style.transform = 'scale(1)';
+            }
+        });
+    }
+
+    window.addEventListener('load', fitTextToContainer);
+    window.addEventListener('resize', fitTextToContainer);
 });
