@@ -764,3 +764,28 @@ footer {
     }
 
 }
+/* --- CSS CHO BỐ CỤC CỐ ĐỊNH CO GIÃN --- */
+
+/* Đặt chiều rộng cố định cho container */
+.mobile-container {
+    width: 480px; /* Chiều rộng chuẩn của "tấm thiệp" */
+    
+    /* Các thuộc tính cũ giữ nguyên */
+    max-width: none; /* Bỏ giới hạn max-width cũ */
+    margin: 0; /* Bỏ margin auto */
+    
+    /* Thiết lập điểm gốc để co giãn từ giữa */
+    transform-origin: top center; 
+    
+    /* Thêm transition để hiệu ứng mượt hơn khi xoay ngang điện thoại */
+    transition: transform 0.2s ease-out; 
+}
+
+/* Quan trọng: Cần một lớp bao bọc bên ngoài để căn giữa */
+body {
+    /* Đảm bảo body có thể chứa và căn giữa container */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

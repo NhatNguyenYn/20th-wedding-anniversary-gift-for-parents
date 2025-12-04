@@ -198,3 +198,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tự động tải lời chúc khi vào web
     loadWishes();
 });
+// --- JAVASCRIPT ĐỂ CO GIÃN TOÀN BỘ TRANG WEB ---
+
+function scaleWebsite() {
+    const container = document.querySelector('.mobile-container');
+    if (!container) return;
+
+    // Chiều rộng gốc của thiết kế
+    const designWidth = 480; 
+
+    // Chiều rộng hiện tại của cửa sổ trình duyệt
+    const windowWidth = window.innerWidth;
+
+    // Tính toán tỉ lệ co giãn
+    // Nếu màn hình lớn hơn chiều rộng thiết kế, không co giãn (scale = 1)
+    // Nếu màn hình nhỏ hơn, tính tỉ lệ co nhỏ lại
+    const scale = windowWidth < designWidth ? windowWidth / designWidth : 1;
+
+    // Áp dụng tỉ lệ co giãn vào container
+    container.style.transform = `scale(${scale})`;
+
+    // Điều chỉnh lại chiều cao của body để không bị khoảng trống
+    // (do transform không ảnh hưởng đến layout)
+    if (scale < 1) {
+        document.body.style.height = (container.offsetHeight * scale) + 'px';
+    } else {
+        document.body.style.height = 'auto';
+    }
+}
+
+// Gọi hàm khi trang tải lần đầu
+window.addEventListener('load', scaleWebsite);
+
+// Gọi lại hàm mỗi khi thay đổi kích thước cửa sổ (xoay ngang điện thoại)
+window.addEventListener('resize', scaleWebsite);
