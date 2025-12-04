@@ -97,14 +97,13 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
-/* --- HEADER / HERO SECTION --- */
+
+/* --- HEADER / HERO SECTION (Nền xám) --- */
 .header-section {
     min-height: 100vh;
-    background: url('../assets/images/Ba me/Bame04.jpg') center/cover no-repeat;
-    /* Các thuộc tính để ảnh nền hiển thị đẹp */
-    background-size: cover; /* Phóng to ảnh để lấp đầy khung, không bị méo */
-    background-position: center center; /* Luôn ưu tiên hiển thị phần giữa ảnh */
-    background-repeat: no-repeat;
+    
+    /* 1. Sửa nền: Bỏ ảnh, thay bằng màu xám tối sang trọng */
+    background-color: #3d3d3d; 
     
     position: relative;
     display: flex;
@@ -114,42 +113,49 @@ body {
     text-align: center;
     color: #fff;
 }
+
+/* Các thuộc tính cho chữ bên trong (Giữ nguyên) */
 .header-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.1); 
     z-index: 1;
 }
+
 .header-content {
     position: relative;
     z-index: 2;
-    padding: 20px;
-    border: 2px solid rgba(255,255,255,0.3);
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.3);
     margin: 20px;
+    background-color: rgba(0,0,0,0.1);
 }
+
 .header-names {
     font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
+
 .header-date {
     font-size: 1.2rem;
     letter-spacing: 4px;
     text-transform: uppercase;
     border-top: 1px solid rgba(255,255,255,0.8);
-    border-bottom: 1px solid rgba(255,255,255,0.8);
     padding: 12px 0;
     display: inline-block;
 }
 
 /* --- COUPLE HIGHLIGHT SECTION --- */
+/* --- COUPLE HIGHLIGHT SECTION (2 ẢNH LỚN) --- */
 .couple-highlight-section {
     padding: 60px 0;
-    background-color: #1f3d2b;
+    background-color: #1f3d2b; /* Nền xanh rêu đậm sang trọng */
     color: #fff;
     overflow: hidden;
 }
+
 .highlight-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -158,17 +164,70 @@ body {
     color: #f1f8e9;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
+
 .highlight-divider {
     width: 1px;
     height: 25px;
     background-color: #fff;
-    margin: 10px auto;
+    margin: 10px auto 30px auto;
 }
-.highlight-subtitle {
-    font-size: 0.8rem;
-    font-style: italic;
-    color: #a5d6a7;
-    margin-bottom: 30px;
+
+.couple-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3; /* Tỉ lệ ảnh chân dung cao */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.couple-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+}
+
+.couple-card:hover .couple-img {
+    transform: scale(1.1);
+}
+
+.couple-overlay {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+    padding: 40px 10px 20px 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+.couple-role {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    margin: 0;
+    line-height: 0.8;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.couple-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-top: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 2;
 }
 .couple-card {
     position: relative;
@@ -198,7 +257,7 @@ body {
 }
 .couple-role {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #fff;
     margin: 0;
     line-height: 0.8;
@@ -614,4 +673,62 @@ footer {
 
 .gallery-item:hover .gallery-overlay {
     opacity: 1; /* Hiện lớp phủ */
+}
+/* --- AUTO-SCROLLING GALLERY SECTION --- */
+
+.auto-scroll-section {
+    padding: 60px 0;
+    background-color: #fff; /* Nền trắng hoặc màu kem --secondary-color */
+}
+
+/* Khung chứa bên ngoài, có tác dụng như một "cửa sổ" */
+.scroller {
+    max-width: 90%; /* Chiều rộng của dải ảnh trên màn hình */
+    margin: 40px auto 0 auto;
+    overflow: hidden; /* Quan trọng: Ẩn đi phần ảnh nằm ngoài khung */
+
+    /* Hiệu ứng mờ dần ở 2 cạnh để ảnh xuất hiện mượt mà */
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+/* Lớp chứa tất cả các ảnh, lớp này sẽ di chuyển */
+.scroller__inner {
+    display: flex; /* Xếp các ảnh nằm ngang */
+    gap: 20px; /* Khoảng cách giữa các ảnh */
+    width: max-content; /* Chiều rộng tự động theo nội dung */
+    
+    /* Animation chính: di chuyển từ phải qua trái */
+    animation: scroll 30s linear infinite;
+}
+
+/* Tạm dừng animation khi di chuột vào */
+.scroller:hover .scroller__inner {
+    animation-play-state: paused;
+}
+
+/* Keyframes định nghĩa chuyển động */
+@keyframes scroll {
+    to {
+        /* Di chuyển sang trái một khoảng bằng đúng chiều rộng của bộ ảnh gốc (4 ảnh + 4 khoảng trống) */
+        /* 250px (rộng) + 20px (gap) = 270px. 270px * 4 ảnh = 1080px */
+        transform: translateX(calc(-4 * (250px + 20px)));
+    }
+}
+
+/* Kiểu dáng cho từng ô ảnh */
+.scroller__item {
+    width: 250px;
+    height: 350px; /* <-- THAY ĐỔI: Tạo một khung chữ nhật đứng thống nhất */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background-color: #f0f0f0; /* Thêm màu nền nhạt cho đẹp */
+}
+
+.scroller__item img {
+    width: 100%;
+    height: 100%;
+    /* THAY ĐỔI: Ra lệnh cho ảnh tự co lại để vừa vặn, giữ nguyên tỉ lệ */
+    object-fit: contain; 
 }
