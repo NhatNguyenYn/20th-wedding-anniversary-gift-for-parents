@@ -732,3 +732,35 @@ footer {
     /* THAY ĐỔI: Ra lệnh cho ảnh tự co lại để vừa vặn, giữ nguyên tỉ lệ */
     object-fit: contain; 
 }
+/* --- RESPONSIVE CSS (Tối ưu cho điện thoại) --- */
+
+/* Áp dụng cho màn hình có chiều rộng từ 768px trở xuống */
+@media (max-width: 768px) {
+
+    /* --- 1. SỬA LỖI HEADER --- */
+    
+    /* Giảm kích thước chữ chính cho vừa màn hình */
+    .header-names {
+        font-size: 2.8rem; /* Giảm từ 3.5rem xuống */
+        line-height: 1.3;
+    }
+
+    /* Giảm kích thước chữ cho ngày tháng */
+    .header-date {
+        font-size: 1rem; /* Giảm từ 1.2rem xuống */
+        letter-spacing: 3px; /* Giảm khoảng cách chữ */
+    }
+
+    /* Giảm padding cho hộp chứa nội dung để không bị sát viền */
+    .header-content {
+        padding: 25px; /* Giảm từ 30px xuống */
+        margin: 15px; /* Giảm margin để hộp nhỏ lại */
+    }
+
+    /* Giảm kích thước chữ "Happy Anniversary" */
+    .header-section .text-uppercase {
+        font-size: 0.8rem !important; /* Dùng !important để đảm bảo ghi đè */
+        letter-spacing: 2px !important;
+    }
+
+}
