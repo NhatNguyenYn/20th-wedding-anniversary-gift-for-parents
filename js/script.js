@@ -11,37 +11,66 @@ document.addEventListener('DOMContentLoaded', function() {
         Fancybox.bind("[data-fancybox]", {});
     }
 
-    // --- 2. MUSIC PLAYER (NHẠC NỀN) ---
+// --- 2. MUSIC PLAYER & WELCOME SCREEN LOGIC ---
     const musicBtn = document.getElementById('musicBtn');
     const bgMusic = document.getElementById('bgMusic');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const enterButton = document.getElementById('enter-button');
     let isPlaying = false;
 
-    if(musicBtn && bgMusic) {
-        musicBtn.addEventListener('click', function() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicBtn.classList.remove('music-rotating');
-                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                bgMusic.play();
-                musicBtn.classList.add('music-rotating');
-                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Tự động phát nhạc nếu trình duyệt cho phép (khi click bất kỳ đâu)
-        document.body.addEventListener('click', function() {
-            if (!isPlaying) {
-                bgMusic.play().then(() => {
-                    isPlaying = true;
+    // Hàm để chơi nhạc
+    function playMusic() {
+        if (!isPlaying && bgMusic) {
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                if(musicBtn) {
                     musicBtn.classList.add('music-rotating');
                     musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                }).catch(e => console.log("Auto-play blocked"));
+                }
+            }).catch(e => console.log("Lỗi phát nhạc:", e));
+        }
+    }
+    
+    // Hàm để dừng nhạc
+    function pauseMusic() {
+        if (isPlaying && bgMusic) {
+            bgMusic.pause();
+            isPlaying = false;
+            if(musicBtn) {
+                musicBtn.classList.remove('music-rotating');
+                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
             }
-        }, { once: true });
+        }
     }
 
+    // Sự kiện khi bấm nút "Mở Thiệp Mời"
+    if (enterButton && welcomeScreen) {
+        enterButton.addEventListener('click', function() {
+            // 1. Chơi nhạc
+            playMusic();
+            
+            // 2. Làm mờ và ẩn màn hình chào mừng
+            welcomeScreen.style.opacity = '0';
+            welcomeScreen.style.visibility = 'hidden';
+
+            // Xóa khỏi DOM sau khi hiệu ứng kết thúc để không cản trở
+            setTimeout(() => {
+                welcomeScreen.remove();
+            }, 1000);
+        });
+    }
+
+    // Sự kiện cho nút điều khiển nhạc nhỏ (nút tròn)
+    if(musicBtn) {
+        musicBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+    }
+    
     // --- 3. VINTAGE COUNTDOWN (ĐẾM NGƯỢC) ---
     // Sửa ngày cưới/kỷ niệm của bạn tại đây
     const targetDate = new Date("Dec 04, 2025 00:00:00").getTime();
@@ -223,4 +252,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('load', fitTextToContainer);
     window.addEventListener('resize', fitTextToContainer);
+
+    // --- 8. XỬ LÝ NÚT CUỘN XUỐNG TỪ LỜI NGỎ ---
+    const scrollButton = document.querySelector('.scroll-down-indicator');
+    const heroAnchor = document.getElementById('hero-anchor');
+
+    if (scrollButton && heroAnchor) {
+        scrollButton.addEventListener('click', function() {
+            // Cuộn mượt mà đến vị trí của "mỏ neo"
+            heroAnchor.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 });
